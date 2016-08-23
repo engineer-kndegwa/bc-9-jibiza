@@ -33,7 +33,8 @@ class JibizaApp(cmd.Cmd):
         '''This function should upload a quiz to firebase'''
 
     def do_showdifferences(self, differences):
-        '''This function should be able to show you the differences between your local and online store'''
+        '''This function should be able to show you the differences \
+        between your local and online store'''
         pass
 
     def do_sync(self, sync):
