@@ -6,14 +6,12 @@ menu = """
 =====================================
 ==========Type start to Begin=========
 """
-click.echo(menu)
 
 
 class JibizaApp(cmd.Cmd):
+    click.clear()
     prompt = "(Jibiza)> "
-
-    def do_something(self):
-        click.echo(menu)
+    click.echo(menu)
 
 
 if __name__ == "__main__":
