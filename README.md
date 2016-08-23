@@ -1,6 +1,6 @@
 #BC-9-JIBIZA
 
-***A project done in fullfillment of the application process for Andela Cohort 9**
+**A project done in fullfillment of the application process for Andela Cohort 9**
 
 >Why Jibiza? 
 Jibiza is a swahili word meaning 'answer back' as translated into English thus the name I settled for in regards to the **Quizz Application** project that I was assigned to accomplish.
@@ -13,7 +13,8 @@ The required commands for the application were:
 
 2. `quiz import <path_to_quiz_JSON>` - Import a new quiz from a JSON file
 
-> JSON Format for Quizzzes should contain the following keys
+> JSON Format for Quizzzes should contain the following keys: 
+
 `questions` - List of questions in the quiz
 `text` - Question text
 `options` - List of options for the question
