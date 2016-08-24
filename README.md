@@ -18,9 +18,13 @@ The required commands for the application were:
 > JSON Format for Quizzzes should contain the following keys: 
 
 `questions` - List of questions in the quiz
+
 `text` - Question text
+
 `options` - List of options for the question
+
 `.is_answer` - Parameter of an option that can be true or false. Indicates whether or not that option is the correct answer.
+
 `quiz take <quiz_name>` - Start taking a new quiz
 
 3. When a user takes a quiz he gets a score based on the answers he got right
