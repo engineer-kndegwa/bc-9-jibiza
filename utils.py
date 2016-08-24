@@ -18,6 +18,17 @@ def local_quizzes():  # good to go
         return []
 
 
+def library_quizzes():  # library quizzes
+    '''This function lists all the files within the library'''
+    try:
+        a = os.listdir('library/')
+        ex_quizzes = [file.replace('.json', '') for file in a]
+        return ex_quizzes  # Add styles here
+    except FileNotFoundError:
+        os.mkdir('library/')
+        return []
+
+
 def import_quiz(quiz_file):  # working
     a = os.listdir('library/')
     extra_quizzes = [file.replace('.json', '')for file in a]
@@ -99,4 +110,3 @@ def countdown(t):
         if t == 0:
             click.echo('TIMES UP!')
             break
-

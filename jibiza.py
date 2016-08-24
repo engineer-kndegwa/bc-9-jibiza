@@ -33,6 +33,14 @@ class JibizaApp(cmd.Cmd):
         except:
             pass
 
+    def do_libraryquizzes(self, *args):  # ok
+        '''This funcion gets all the lists within the Library'''
+        try:
+            for quiz in utils.library_quizzes():
+                click.echo(quiz)
+        except:
+            pass
+
     def do_importquiz(self, quiz_file):  # ok
         '''This function imports a quizz from a JSON File'''
         utils.import_quiz(quiz_file)
