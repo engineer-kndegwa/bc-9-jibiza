@@ -2,13 +2,16 @@ import cmd
 import click
 import utils
 import sys
+import urllib3
 from colorama import init
 from termcolor import cprint
 from pyfiglet import figlet_format
+from firebase import firebase_data
+urllib3.disable_warnings()
 
 click.clear()
 init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
-cprint(figlet_format('JIBIZA', font='basic'),
+cprint(figlet_format('JIBIZA', font='univers'),
        'white', 'on_red', attrs=['bold'])
 
 with click.progressbar(range(20000),
@@ -41,10 +44,12 @@ class JibizaApp(cmd.Cmd):
         except:
             pass
 
-    def do_downloadquiz(self, download_text):
+    def do_getonlinequizzes(self, args):
         '''This function downloads a quiz to the local repo'''
-        download_text = "Download"
-        click.echo(download_text)
+        try:
+            firebase_data()
+        except:
+            pass
 
     def do_uploadquiz(self, upload_quiz):
         '''This function should upload a quiz to firebase'''
@@ -67,5 +72,3 @@ if __name__ == "__main__":
         JibizaApp().cmdloop()
     except KeyboardInterrupt:
         print("Bye!")
-    except:
-        print("Input Error!")
