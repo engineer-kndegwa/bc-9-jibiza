@@ -3,11 +3,11 @@ import json
 import click
 import time
 from Questions.questions import QuestionStructure
-from shutil import copyfile
+from shutil import copy2
 from tabulate import tabulate
 
 
-def local_quizzes():
+def local_quizzes():  # good to go
     '''This function lists all the files within the directory'''
     try:
         a = os.listdir('Questions/json')
@@ -18,15 +18,25 @@ def local_quizzes():
         return []
 
 
-def load_quiz(quiz_file):
+def import_quiz(quiz_file):  # working
+    a = os.listdir('library/')
+    extra_quizzes = [file.replace('.json', '')for file in a]
+    b = os.listdir('Questions/json')
+    quizzes = [file.replace('.json', '') for file in b]
+    dst = os.path.join(os.path.abspath('.'), 'Questions/json')
+    src_path = os.path.join(os.path.abspath('.'), 'library/')
     try:
-        filename = 'Questions/json/' + quiz_file + '.json'
-        fl = open(filename).read()
-        f = json.loads(fl)
-        f2 = f['name']
-    except IOError or FileNotFoundError:
-        return 'That file is not within your local repository.'
-    return f2
+        for quiz in extra_quizzes:
+            if quiz not in quizzes:
+                src = os.path.join(src_path, quiz + '.json')
+                dst = os.path.join(dst, quiz_file + '.json')
+                copy2(src, dst)
+            else:
+                print('Already Exists')
+    except IOError or FileNotFoundError as e:
+        print('That file is not within your library.')
+        raise e
+    return quizzes, extra_quizzes
 
 
 def get_quiz_details(the_quiz_file):
@@ -88,5 +98,3 @@ def countdown(t):
         if t == 0:
             click.echo('TIMES UP!')
             break
-
-
