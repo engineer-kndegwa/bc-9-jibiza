@@ -1,13 +1,21 @@
+import os
 import json
 import click
 import time
 from Questions.questions import QuestionStructure
+from shutil import copyfile
+from tabulate import tabulate
 
 
-def import_quiz_file(path_quiz):
-    fl = open(path_quiz).read()
-    f = json.loads(fl)
-    return f['name']
+def local_quizzes():
+    '''This function lists all the files within the directory'''
+    try:
+        a = os.listdir('Questions/json')
+        quizzes = [file.replace('.json', '') for file in a]
+        return quizzes
+    except FileNotFoundError:
+        os.mkdir('Questions/json')
+        return []
 
 
 def get_quiz_details(the_quiz_file):
@@ -32,9 +40,9 @@ def attempt_quiz(the_quiz_file):
     questions = quiz_dets['questions']
     time_given = quiz_dets['time_allocated']  # countdown timer
     responses = []
-    t = time_given
     begin = time.time()
     game_over = False
+    '''Get Through each question from the json file'''
     for q in questions:
         if time.time() - begin > time_given:
             game_over = True
@@ -47,10 +55,16 @@ def attempt_quiz(the_quiz_file):
         else:
             click.echo('RIGHT!')
         input("Press enter to proceed to the next question.")
-    countdown(t)
 
     performance = int(responses.count(True) / len(questions) * 100)
-
+    if game_over:
+        return 'Times Up!'
+    table = [['Questions Attemted', len(responses)],
+             ['Passed', responses.check_answer(True)],
+             ['Failed', responses.check_answer(False)],
+             ['performance', performance]
+             ]
+    click.echo(tabulate(table))
 
 
 def countdown(t):
@@ -64,5 +78,4 @@ def countdown(t):
             click.echo('TIMES UP!')
             break
 
-
-attempt_quiz('general')
+print(local_quizzes())
