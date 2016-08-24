@@ -1,23 +1,34 @@
 import cmd
 import click
 import utils
+import sys
+from colorama import init
+from termcolor import cprint
+from pyfiglet import figlet_format
 
-menu = """
-===============JIBIZA================
-=====================================
-=====================================
-"""
+click.clear()
+init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
+cprint(figlet_format('JIBIZA', font='basic'),
+       'white', 'on_red', attrs=['bold'])
+
+with click.progressbar(range(20000),
+                       label="Loading Jibiza...",
+                       fill_char=click.style('#',
+                                             fg='red', bg='black')) as prog_bar:
+    for i in prog_bar:
+        pass
 
 
 class JibizaApp(cmd.Cmd):
-    click.clear()
     prompt = "(Jibiza)> "
-    click.echo(menu)
 
     def do_allquizzes(self, *args):  # ok
         '''This funcion gets all the lists within the Application'''
-        for quiz in utils.local_quizzes():
-            click.echo(quiz)
+        try:
+            for quiz in utils.local_quizzes():
+                click.echo(quiz)
+        except:
+            pass
 
     def do_importquiz(self, quiz_file):  # ok
         '''This function imports a quizz from a JSON File'''
@@ -25,7 +36,10 @@ class JibizaApp(cmd.Cmd):
 
     def do_takequiz(self, quiz_file):
         '''This function allows the user to take a quiz'''
-        utils.attempt_quiz(quiz_file)
+        try:
+            utils.attempt_quiz(quiz_file)
+        except:
+            pass
 
     def do_downloadquiz(self, download_text):
         '''This function downloads a quiz to the local repo'''
@@ -44,9 +58,14 @@ class JibizaApp(cmd.Cmd):
         '''This should sync'''
         pass
 
+    def default(self, arg):
+        pass
+
 
 if __name__ == "__main__":
     try:
         JibizaApp().cmdloop()
     except KeyboardInterrupt:
         print("Bye!")
+    except:
+        print("Input Error!")
