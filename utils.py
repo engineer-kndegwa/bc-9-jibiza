@@ -40,7 +40,6 @@ def import_quiz(quiz_file):  # working
         for quiz in extra_quizzes:
             if quiz not in quizzes:
                 src = os.path.join(src_path, quiz + '.json')
-                dst = os.path.join(dst, quiz_file + '.json')
                 copy2(src, dst)
             else:
                 print('Already Exists')
