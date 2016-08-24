@@ -14,19 +14,18 @@ class JibizaApp(cmd.Cmd):
     prompt = "(Jibiza)> "
     click.echo(menu)
 
-    def do_allquizzes(self, *args): #ok
+    def do_allquizzes(self, *args):  # ok
         '''This funcion gets all the lists within the Application'''
         for quiz in utils.local_quizzes():
             click.echo(quiz)
 
-    def do_importquiz(self, quiz_file):
+    def do_importquiz(self, quiz_file):  # ok
         '''This function imports a quizz from a JSON File'''
         utils.import_quiz(quiz_file)
 
     def do_takequiz(self, quiz_file):
         '''This function allows the user to take a quiz'''
         utils.attempt_quiz(quiz_file)
-
 
     def do_downloadquiz(self, download_text):
         '''This function downloads a quiz to the local repo'''

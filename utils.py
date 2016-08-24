@@ -50,16 +50,19 @@ def get_quiz_details(the_quiz_file):
         t = q['q_text']
         a = q['is_answer']
         options = q['options']
-    quiz_breakdown.append(QuestionStructure(t, a, options))
+        quiz_breakdown.append(QuestionStructure(t, a, options))
     return {"time_allocated": time_allocated, "questions": quiz_breakdown}
 
 
 def attempt_quiz(the_quiz_file):
-    if the_quiz_file == "":
-        click.echo('That File doesnt exist')
+    try:
+        if the_quiz_file == "":
+            click.echo('That File doesnt exist')
+    except FileNotFoundError:
+        click.echo('File doesnt exist')
     quiz_dets = get_quiz_details(the_quiz_file)
     questions = quiz_dets['questions']
-    time_given = quiz_dets['time_allocated']  # countdown timer
+    time_given = quiz_dets['time_allocated']
     responses = []
     begin = time.time()
     game_over = False
@@ -69,20 +72,18 @@ def attempt_quiz(the_quiz_file):
             game_over = True
             break
         click.echo(q.combine_string())
-        answer_provided = input("Enter Ans>>: ")
+        answer_provided = raw_input("Enter Ans>>: ")
+        print(answer_provided)
         responses.append(q.check_answer(answer_provided))
         if responses[-1] is False:
             click.echo('WRONG!')
         else:
             click.echo('RIGHT!')
-        input("Press enter to proceed to the next question.")
-
+        raw_input("Press enter to proceed to the next question.")
     performance = int(responses.count(True) / len(questions) * 100)
     if game_over:
         return 'Times Up!'
     table = [['Questions Attemted', len(responses)],
-             ['Passed', responses.check_answer(True)],
-             ['Failed', responses.check_answer(False)],
              ['performance', performance]
              ]
     click.echo(tabulate(table))
@@ -98,3 +99,4 @@ def countdown(t):
         if t == 0:
             click.echo('TIMES UP!')
             break
+
