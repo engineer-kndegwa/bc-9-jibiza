@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Kimanicodes/bc-9-jibiza.svg?branch=dev)](https://travis-ci.org/Kimanicodes/bc-9-jibiza)
+
 #BC-9-JIBIZA
 
 **A project done in fullfillment of the application process for Andela Cohort 9**
