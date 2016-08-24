@@ -15,7 +15,7 @@ class QuestionStructure(object):
             return 'You haven\'t answered the question'
         a = self.answer.upper()  # actual answer to a
         b = self.answer_provided.upper()  # provided answer to b
-        if a == b:
+        if str(a) == str(b):
             return True
         else:
             return False

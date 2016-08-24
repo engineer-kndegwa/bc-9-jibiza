@@ -1,10 +1,11 @@
 import cmd
 import click
+import utils
 
 menu = """
 ===============JIBIZA================
 =====================================
-==========Type start to Begin=========
+=====================================
 """
 
 
@@ -13,10 +14,10 @@ class JibizaApp(cmd.Cmd):
     prompt = "(Jibiza)> "
     click.echo(menu)
 
-    def do_allquizzes(self, weclome):
+    def do_allquizzes(self, *args):
         '''This funcion gets all the lists within the Application'''
-        self.weclome = 'List all quizzes'
-        click.echo(weclome)
+        for quiz in utils.local_quizzes():
+            click.echo(quiz)
 
     def do_importquiz(self):
         '''This function imports a quizz from a JSON File'''

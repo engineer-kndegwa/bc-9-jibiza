@@ -12,10 +12,21 @@ def local_quizzes():
     try:
         a = os.listdir('Questions/json')
         quizzes = [file.replace('.json', '') for file in a]
-        return quizzes
+        return quizzes  # Add styles here
     except FileNotFoundError:
         os.mkdir('Questions/json')
         return []
+
+
+def load_quiz(quiz_file):
+    try:
+        filename = 'Questions/json/' + quiz_file + '.json'
+        fl = open(filename).read()
+        f = json.loads(fl)
+        f2 = f['name']
+    except IOError or FileNotFoundError:
+        return 'That file is not within your local repository.'
+    return f2
 
 
 def get_quiz_details(the_quiz_file):
@@ -78,4 +89,4 @@ def countdown(t):
             click.echo('TIMES UP!')
             break
 
-print(local_quizzes())
+
