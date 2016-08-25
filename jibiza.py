@@ -1,15 +1,14 @@
 import cmd
 import click
 import utils
-import urllib3
 from firebase import firebase_data
 import ui
 import warnings
 
 warnings.filterwarnings("ignore")
 
-# ui.header()
-# ui.menu()
+ui.header()
+ui.menu()
 
 
 class JibizaApp(cmd.Cmd):
@@ -66,8 +65,16 @@ class JibizaApp(cmd.Cmd):
         except:
             pass
 
-    def do_help(self, option):
+    def do_clr(self, arg):
         '''This function should upload a quiz to firebase'''
+        click.clear()
+        ui.title_jibiza()
+        ui.welcome_message()
+
+    def do_help(self, arg):
+        '''This function should upload a quiz to firebase'''
+        ui.help_screen()
+        ui.persistent_menu()
 
     def default(self, arg):
         pass

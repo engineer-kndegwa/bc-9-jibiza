@@ -79,3 +79,36 @@ def menu():
     click.clear()
     title_jibiza()
     welcome_message()
+
+
+def help_screen():
+    click.clear()
+    click.secho('~' * 50, fg='cyan')
+    click.secho('~' * 50, fg='cyan')
+    click.secho('WELCOME TO THE HELP SECTION.', bold=True, fg='cyan')
+    click.secho('Definition of terms.', fg='yellow', bold=True)
+    def_terms = """
+    1. Local Quizzes - These are the available quizzes that can be taken.
+    2. Library Quizzes - These are a second group of quizzes stored on your file system
+    and that are imported to your local quizzes section. This serves as a better alternative to 
+    typing the full path. Online quizzes on firebase once downloaded come here.
+    3. Online quizzes - These are the quizzes stored on the firebase application. Once downloaded, they go to the library.
+    """
+    click.secho(def_terms, fg='yellow')
+    click.secho('~' * 50, fg='cyan')
+    click.secho('~' * 50, fg='cyan')
+
+
+def persistent_menu():
+    time.sleep(1)
+    table = [["allquizzes", 'No Arguments', '\'allquizzes\' returns a list of all locally imported quizzes to the app.', "allquizzes"],
+             ["importquiz", '<quiz_name>',
+                 "\'importquiz\' imports a quiz from the local library. ", "importquiz olympics"],
+             ["takequiz", '<quiz_name>',
+                 "\'takequiz\' allows a user to attempt a quiz and get a score based on answers given.", "takequiz olympics"],
+             ["context", 'No Arguments',
+                 "\'context\' help section to decode terms and how they are used in Jibiza App.", "context"]
+             ]
+    headers = ["COMMAND", "ARGUMENT", "DETAILS", "EXAMPLE USE"]
+    click.secho(tabulate(table, headers, tablefmt="grid"),
+                fg='cyan', bold=True)
