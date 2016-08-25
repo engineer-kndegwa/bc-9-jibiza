@@ -110,6 +110,16 @@ def attempt_quiz(the_quiz_file):
     click.echo(tabulate(table))
 
 
+def download_quiz(quiz_name):
+    a = Firebase('https://bc-9-jibiza-test.firebaseio.com/')
+    ref = a.ref('questions/' + quiz_name)
+    quiz_gotten = ref.get()
+    print(quiz_gotten)
+    quiz_path = 'library/' + quiz_name + '.json'
+    with open(quiz_path, 'w') as open_file:
+        json.dump(quiz_gotten, open_file)
+
+
 def countdown(t):
     while t:
         mins, secs = divmod(t, 60)
@@ -121,3 +131,5 @@ def countdown(t):
             click.echo('TIMES UP!')
             break
 
+
+download_quiz('beginner')
