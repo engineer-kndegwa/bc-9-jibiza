@@ -6,18 +6,23 @@ from firebase import firebase_data
 import ui
 urllib3.disable_warnings()
 
-ui.header()
-ui.menu()
+# ui.header()
+# ui.menu()
 
 
 class JibizaApp(cmd.Cmd):
-    prompt = click.style("AskJibiza>>", fg='white', bg='cyan', bold=True)
+    prompt = click.style("Ask@Jibiza>>", fg='white', bg='cyan', bold=True)
 
     def do_allquizzes(self, *args):  # ok
         '''This funcion gets all the lists within the Application'''
         try:
+            click.secho("{:>40}".format('AVAILABLE QUIZZES.'),
+                        fg='yellow', bold=True) # formats appearance of the quizzes
             for quiz in utils.local_quizzes():
-                click.echo(quiz)
+                click.secho("_" * 75, fg='cyan')
+                click.secho(" Quiz:" + str(quiz.title()),
+                            fg='yellow', bold=True)
+                click.secho("_" * 75, fg='cyan')
         except:
             pass
 

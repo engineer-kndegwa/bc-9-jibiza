@@ -35,8 +35,10 @@ The required commands for the application were:
 
 6. Add in an online quiz repository using Firebase (extra credit)
 
->List all the online quizzes
-Download a quiz to your library
-Publish a local quiz to the online library
+7. List all the online quizzes
+
+8. Download a quiz to your library
+
+9. Publish a local quiz to the online library
 
 #Installation.

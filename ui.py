@@ -61,6 +61,7 @@ def header():
             pass
     click.secho("{:>40}".format('DONE!'), bold=True, fg='yellow')
 
+
 def menu():
     time.sleep(1)
     table = [["allquizzes", 'No Arguments', '\'allquizzes\' returns a list of all locally imported quizzes to the app.', "allquizzes"],

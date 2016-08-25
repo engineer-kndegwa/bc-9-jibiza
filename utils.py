@@ -112,6 +112,7 @@ def attempt_quiz(the_quiz_file):
         raw_input("Press enter to proceed to the next question.")
     if game_over:
         return 'Times Up!'
+
     performance = (float(correct_count) / len(questions) * 100)
     # tabulate the results
     table = [['Time Allocated', time_given],
@@ -134,6 +135,7 @@ def download_quiz(quiz_name):
     quiz_path = 'library/' + quiz_name + '.json'
     with open(quiz_path, 'w') as open_file:
         json.dump(quiz_gotten, open_file)
+        click.secho('QUIZ DOWNLOAD SUCCESSFUL!', bold=True, fg='yellow')
 
 
 def countdown(t):
