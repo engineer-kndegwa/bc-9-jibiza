@@ -6,7 +6,7 @@ from firebase import firebase_data
 import ui
 urllib3.disable_warnings()
 
-#ui.header()
+ui.header()
 ui.menu()
 
 
