@@ -27,13 +27,15 @@ class JibizaApp(cmd.Cmd):
 
     def do_allquizzes(self, *args):  # ok
         '''This funcion gets all the lists within the Application'''
+        if args:
+            click.echo('This command takes no arguments.')
         try:
             for quiz in utils.local_quizzes():
                 click.echo(quiz)
         except:
             pass
 
-    def do_libraryquizzes(self, *args):  # ok
+    def do_showlibraryquizzes(self, *args):  # ok
         '''This funcion gets all the lists within the Library'''
         try:
             for quiz in utils.library_quizzes():
@@ -52,7 +54,7 @@ class JibizaApp(cmd.Cmd):
         except:
             pass
 
-    def do_getonlinequizzes(self, args):  # ok
+    def do_showonlinequizzes(self, args):  # ok
         '''This function downloads a quiz to the local repo'''
         try:
             firebase_data()
@@ -60,20 +62,14 @@ class JibizaApp(cmd.Cmd):
             pass
 
     def do_downloadquiz(self, quiz_name):
-        '''This function should upload a quiz to firebase'''
-
+        '''This function should downlaod a quiz to firebase'''
+        try:
+            utils.download_quiz(quiz_name)
+        except:
+            pass
 
     def do_uploadquiz(self, upload_quiz):
         '''This function should upload a quiz to firebase'''
-
-    def do_showdifferences(self, differences):
-        '''This function should be able to show you the differences \
-        between your local and online store'''
-        pass
-
-    def do_sync(self, sync):
-        '''This should sync'''
-        pass
 
     def default(self, arg):
         pass

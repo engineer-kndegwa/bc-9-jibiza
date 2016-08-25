@@ -10,7 +10,7 @@ from pyfirebase import Firebase
 
 
 def local_quizzes():  # good to go
-    '''This function lists all the files within the directory'''
+    '''This function lists all the files within the local scope directory'''
     try:
         a = os.listdir('Questions/json')
         quizzes = [file.replace('.json', '') for file in a]
@@ -32,24 +32,33 @@ def library_quizzes():  # library quizzes
 
 
 def import_quiz(quiz_file):  # working
-    a = os.listdir('library/')
+    '''The first step that creates a and b 
+    lists the files within the directory'''
+    a = os.listdir('library/')  # list the files in the library
     extra_quizzes = [file.replace('.json', '')for file in a]
-    b = os.listdir('Questions/json')
+
+    b = os.listdir('Questions/json')  # list the files in the Questions/json
     quizzes = [file.replace('.json', '') for file in b]
+
     dst = os.path.join(os.path.abspath('.'), 'Questions/json')
     src_path = os.path.join(os.path.abspath('.'), 'library/')
+    # creates an absolute path for shutils
     try:
+        # check all quizzes within the extra quizzes string
         for quiz in extra_quizzes:
             if quiz not in quizzes:
+                # confirm first if it exists within our quizzes listed in
+                # Questions/json folder
                 src = os.path.join(src_path, quiz + '.json')
                 copy2(src, dst)
                 click.echo('Quiz import successful!')
-            else:
-                click.echo('Already Exists')
+                break
+        else:
+            click.echo('Already Exists')
     except IOError as e:
         print('That file is not within your library.')
         raise e
-    return quizzes, extra_quizzes
+    return quizzes, extra_quizzes  # return both for purposes of reassignment
 
 
 def get_quiz_details(the_quiz_file):
@@ -57,7 +66,7 @@ def get_quiz_details(the_quiz_file):
     quiz_path = 'Questions/json/' + the_quiz_file + '.json'
     quiz_file = open(quiz_path, 'r').read()
     the_quiz = json.loads(quiz_file)
-    time_allocated = int(the_quiz["time_allocated"])
+    time_allocated = int(the_quiz["time_allocated"])  # get time allocated
     quiz_breakdown = []
     for q in the_quiz['questions']:
         t = q['q_text']
@@ -68,19 +77,23 @@ def get_quiz_details(the_quiz_file):
 
 
 def attempt_quiz(the_quiz_file):
+    """ This function is the main function that allows user to
+        attempt the question. 
+    """
     try:
         if the_quiz_file == "":
             click.echo('That File doesnt exist')
-    except FileNotFoundError:
+    except IOError:  # exception if file does not exist
         click.echo('File doesnt exist')
-    correct_count = 0
-    wrong_count = 0
-    quiz_dets = get_quiz_details(the_quiz_file)
+    correct_count = 0  # create a correct answer counter
+    wrong_count = 0  # create a wrong answer counter
+
+    quiz_dets = get_quiz_details(the_quiz_file)  # get quiz details
     questions = quiz_dets['questions']
     time_given = quiz_dets['time_allocated']
-    responses = []
-    begin = time.time()
-    game_over = False
+    responses = []  # store the responses gotten in a list
+    begin = time.time()  # set start or begin time
+    game_over = False  # in case you dont't make it in time
     '''Get Through each question from the json file'''
     for q in questions:
         if time.time() - begin > time_given:
@@ -100,6 +113,7 @@ def attempt_quiz(the_quiz_file):
     if game_over:
         return 'Times Up!'
     performance = (float(correct_count) / len(questions) * 100)
+    # tabulate the results
     table = [['Time Allocated', time_given],
              ['Questions Attempted', len(responses)],
              ['Performance in %', performance],
@@ -111,16 +125,19 @@ def attempt_quiz(the_quiz_file):
 
 
 def download_quiz(quiz_name):
+    '''
+    This function downloads quiz data from firebase.
+    '''
     a = Firebase('https://bc-9-jibiza-test.firebaseio.com/')
     ref = a.ref('questions/' + quiz_name)
     quiz_gotten = ref.get()
-    print(quiz_gotten)
     quiz_path = 'library/' + quiz_name + '.json'
     with open(quiz_path, 'w') as open_file:
         json.dump(quiz_gotten, open_file)
 
 
 def countdown(t):
+    '''Time out counter.'''
     while t:
         mins, secs = divmod(t, 60)
         timeformat = '{:02d}'.format(secs)
@@ -130,6 +147,3 @@ def countdown(t):
         if t == 0:
             click.echo('TIMES UP!')
             break
-
-
-download_quiz('beginner')
