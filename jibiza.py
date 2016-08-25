@@ -59,6 +59,10 @@ class JibizaApp(cmd.Cmd):
         except:
             pass
 
+    def do_downloadquiz(self, quiz_name):
+        '''This function should upload a quiz to firebase'''
+
+
     def do_uploadquiz(self, upload_quiz):
         '''This function should upload a quiz to firebase'''
 

@@ -1,9 +1,9 @@
-{"name": "theworld",
-"time_allocated":20,
+{"name": "generalquiz",
+"time_allocated":15,
 "questions":[
-    {"q_text":"Which of these words means the granting of powers from central government to government at a lower level?",
-     "options": {"a":"Depravity","b":"Dissention", "c":"Devolution", "d":"Dissolution"},
-     "is_answer": "c"
+    {"q_text":"The fear of open spaces is called?",
+     "options": {"a":"Hydrophobia","b":"Agoraphobia", "c":"Claustrophobia", "d":"Acrophobia"},
+     "is_answer": "b"
     },
 
     {
