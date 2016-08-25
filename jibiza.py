@@ -52,7 +52,7 @@ class JibizaApp(cmd.Cmd):
         except:
             pass
 
-    def do_getonlinequizzes(self, args):
+    def do_getonlinequizzes(self, args):  # ok
         '''This function downloads a quiz to the local repo'''
         try:
             firebase_data()
