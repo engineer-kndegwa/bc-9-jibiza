@@ -1,34 +1,20 @@
 import cmd
 import click
 import utils
-import sys
 import urllib3
-from colorama import init
-from termcolor import cprint
-from pyfiglet import figlet_format
 from firebase import firebase_data
+import ui
 urllib3.disable_warnings()
 
-click.clear()
-init(strip=not sys.stdout.isatty())  # strip colors if stdout is redirected
-cprint(figlet_format('JIBIZA', font='univers'),
-       'white', 'on_red', attrs=['bold'])
-
-with click.progressbar(range(20000),
-                       label="Loading Jibiza...",
-                       fill_char=click.style('#',
-                                             fg='red', bg='black')) as prog_bar:
-    for i in prog_bar:
-        pass
+#ui.header()
+ui.menu()
 
 
 class JibizaApp(cmd.Cmd):
-    prompt = "(Jibiza)> "
+    prompt = click.style("AskJibiza>>", fg='white', bg='cyan', bold=True)
 
     def do_allquizzes(self, *args):  # ok
         '''This funcion gets all the lists within the Application'''
-        if args:
-            click.echo('This command takes no arguments.')
         try:
             for quiz in utils.local_quizzes():
                 click.echo(quiz)
@@ -68,7 +54,7 @@ class JibizaApp(cmd.Cmd):
         except:
             pass
 
-    def do_uploadquiz(self, upload_quiz):
+    def do_help(self, option):
         '''This function should upload a quiz to firebase'''
 
     def default(self, arg):
