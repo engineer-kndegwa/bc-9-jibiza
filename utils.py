@@ -151,7 +151,20 @@ def download_quiz(quiz_name):
         click.secho('QUIZ DOWNLOAD SUCCESSFUL!', bold=True, fg='yellow')
 
 
-def countdown(t):
+
+def upload_quiz(quiz_name):
+    try:
+        with open('Questions/json/' + quiz_name + '.json', 'r') as b:
+            try:
+                data = json.load(b)
+            except ValueError:
+                print("JSON data is not valid")
+            push = firebase.post('/uploads', data)
+    except IOError, e:
+        raise
+
+
+def countdown(t): # Has bugs
     '''Time out counter.'''
     while t:
         mins, secs = divmod(t, 60)

@@ -59,9 +59,16 @@ class JibizaApp(cmd.Cmd):
             pass
 
     def do_downloadquiz(self, quiz_name):
-        '''This function should downlaod a quiz to firebase'''
+        '''This function should download a quiz from firebase'''
         try:
             utils.download_quiz(quiz_name)
+        except:
+            pass
+
+    def do_uploadquiz(self, quiz_name):
+        '''This function should upload a quiz to firebase'''
+        try:
+            utils.upload_quiz(quiz_name)
         except:
             pass
 
@@ -72,12 +79,15 @@ class JibizaApp(cmd.Cmd):
         ui.welcome_message()
 
     def do_help(self, arg):
-        '''This function should upload a quiz to firebase'''
+        '''This function should show a table with all the commands'''
         ui.help_screen()
         ui.persistent_menu()
 
     def default(self, arg):
         pass
+
+    def do_EOF(self, line):
+        return True
 
 
 if __name__ == "__main__":

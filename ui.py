@@ -23,10 +23,10 @@ def title_jibiza():
 def welcome_message():
     click.secho(
         """
-==============WELCOME==============
-**************       **************
-*************START HERE************
-=============        ==============
+===============WELCOME==============
+**************************************
+TYPE HELP ANYTIME TO VIEW HELP SECTION
+======================================
     """, bold=True, fg="yellow")
 
 
@@ -69,8 +69,8 @@ def menu():
                  "\'importquiz\' imports a quiz from the local library. ", "importquiz olympics"],
              ["takequiz", '<quiz_name>',
                  "\'takequiz\' allows a user to attempt a quiz and get a score based on answers given.", "takequiz olympics"],
-             ["context", 'No Arguments',
-                 "\'context\' help section to decode terms and how they are used in Jibiza App.", "context"]
+             ["help", 'No Arguments',
+                 "\'help\' help section to decode terms and how they are used in Jibiza App.", "help"]
              ]
     headers = ["COMMAND", "ARGUMENT", "DETAILS", "EXAMPLE USE"]
     click.secho(tabulate(table, headers, tablefmt="grid"),
@@ -102,13 +102,15 @@ def help_screen():
 def persistent_menu():
     time.sleep(1)
     table = [["allquizzes", 'No Arguments', '\'allquizzes\' returns a list of all locally imported quizzes to the app.', "allquizzes"],
-             ["importquiz", '<quiz_name>',
-                 "\'importquiz\' imports a quiz from the local library. ", "importquiz olympics"],
-             ["takequiz", '<quiz_name>',
-                 "\'takequiz\' allows a user to attempt a quiz and get a score based on answers given.", "takequiz olympics"],
-             ["context", 'No Arguments',
-                 "\'context\' help section to decode terms and how they are used in Jibiza App.", "context"]
+             ["importquiz", '<quiz_name>', "\'importquiz\' imports a quiz from the local library. ", "importquiz olympics"],
+             ["showlibraryquizzes", 'No Arguments', "lists all the quizzes in the library that need be imported before use.",'showlibraryquizzes'],
+             ["showonlinequizzes", 'No Arguments', "lists all the quizzes on firebase that need be downloaded before use.",'showonlinequizzes'],
+             ["takequiz", '<quiz_name>', "\'takequiz\' allows a user to attempt a quiz and get a score based on answers given.", "takequiz olympics"],
+             ["downloadquiz", '<quiz_name>',"This allows you to download a quiz the firebase.", "downloadquiz beginner"],
+             ["uploadquiz", '<quiz_name>',"This allows you to upload a quiz to firebase.", "downloadquiz beginner"],
+             ["help", 'No Arguments',"\'help\' help section to decode terms and how they are used in Jibiza App.", "help"]
              ]
     headers = ["COMMAND", "ARGUMENT", "DETAILS", "EXAMPLE USE"]
     click.secho(tabulate(table, headers, tablefmt="grid"),
                 fg='cyan', bold=True)
+

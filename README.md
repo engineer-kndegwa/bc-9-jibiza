@@ -11,9 +11,27 @@ The Quiz Application is a ***console*** based application that should be used to
 
 The required commands for the application were:
 
-1. `quiz list` - List of all the available quizzes in your library
+Command| Argument| Explanation
+--- | --- | ---
+|`quiz list`| None | Lists of all the available quizzes in your library
+|`quiz import`| `<path_to_quiz_JSON>` | Import a new quiz from a JSON file
+|`quiz take|<quiz_name>`| Start taking a new quiz
 
-2. `quiz import <path_to_quiz_JSON>` - Import a new quiz from a JSON file
+**The following requirements were also highlighted.
+
+1. When a user takes a quiz he gets a score based on the answers he got right
+
+2. Timing can be added to quiz as a parameter in the JSON
+
+3. As a user I can import quizzes from JSON files
+
+4. Add in an online quiz repository using Firebase (extra credit)
+
+5. List all the online quizzes
+
+6. Download a quiz to your library
+
+7. Publish a local quiz to the online library
 
 > JSON Format for Quizzzes should contain the following keys: 
 
@@ -27,18 +45,38 @@ The required commands for the application were:
 
 `quiz take <quiz_name>` - Start taking a new quiz
 
-3. When a user takes a quiz he gets a score based on the answers he got right
-
-4. Timing can be added to quiz as a parameter in the JSON
-
-5. As a user I can import quizzes from JSON files
-
-6. Add in an online quiz repository using Firebase (extra credit)
-
-7. List all the online quizzes
-
-8. Download a quiz to your library
-
-9. Publish a local quiz to the online library
 
 #Installation.
+
+**To be able to get this project to your local machine**
+
+1. First git clone this project at `https://github.com/Kimanicodes/bc-9-jibiza.git`
+
+2. Navigate to the `bc-9-jibiza` folder.
+
+3. Create a virtual environment using the `virtualenv` command and activate it.
+
+4. Install the requirements via `pip install -r requirements.txt`
+
+5. Run the application in your terminal via `python jibiza.py`
+
+
+#Bugs
+
+A few bugs were encountered during the creation of Jibiza.
+
+1. The `uploadquiz` functionality is erratic.
+
+2. The timer sometimes does not work as expected.
+
+
+#Resources
+
+1. The author @[Kimani Ndegwa](https://www.kimanindegwa.co.ke)
+
+2. [Click Documentation](http://www.click.pocoo.org)
+
+3. [Firebase](https://bc-9-jibiza-test.firebaseio.com/)
+
+
+
