@@ -4,7 +4,9 @@ import utils
 import urllib3
 from firebase import firebase_data
 import ui
-urllib3.disable_warnings()
+import warnings
+
+warnings.filterwarnings("ignore")
 
 # ui.header()
 # ui.menu()
@@ -17,10 +19,10 @@ class JibizaApp(cmd.Cmd):
         '''This funcion gets all the lists within the Application'''
         try:
             click.secho("{:>40}".format('AVAILABLE QUIZZES.'),
-                        fg='yellow', bold=True) # formats appearance of the quizzes
+                        fg='yellow', bold=True)  # formats appearance of the quizzes
             for quiz in utils.local_quizzes():
                 click.secho("_" * 75, fg='cyan')
-                click.secho(" Quiz:" + str(quiz.title()),
+                click.secho(" Quiz Title: " + str(quiz.title()),
                             fg='yellow', bold=True)
                 click.secho("_" * 75, fg='cyan')
         except:
@@ -29,8 +31,13 @@ class JibizaApp(cmd.Cmd):
     def do_showlibraryquizzes(self, *args):  # ok
         '''This funcion gets all the lists within the Library'''
         try:
+            click.secho("{:>40}".format('LIBRARY QUIZZES.'),
+                        fg='yellow', bold=True)
             for quiz in utils.library_quizzes():
-                click.echo(quiz)
+                click.secho("_" * 75, fg='cyan')
+                click.secho(" Quiz Title :" + str(quiz.title()),
+                            fg='yellow', bold=True)
+                click.secho("_" * 75, fg='cyan')
         except:
             pass
 

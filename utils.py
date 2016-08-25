@@ -7,6 +7,9 @@ from Questions.questions import QuestionStructure
 from shutil import copy2
 from tabulate import tabulate
 from pyfirebase import Firebase
+import warnings
+
+warnings.filterwarnings("ignore")
 
 
 def local_quizzes():  # good to go
@@ -51,12 +54,22 @@ def import_quiz(quiz_file):  # working
                 # Questions/json folder
                 src = os.path.join(src_path, quiz + '.json')
                 copy2(src, dst)
-                click.echo('Quiz import successful!')
+                click.secho("=" * 45, fg='green')
+                click.secho("=" * 45, fg='green')
+                click.secho(
+                    "Quiz import successful!Proceed to take quiz.", fg='green')
+                click.secho("=" * 45, fg='green')
+                click.secho("=" * 45
+                    , fg='green')
                 break
         else:
-            click.echo('Already Exists')
+            click.secho("=" * 45, fg='red')
+            click.secho("=" * 45, fg='red')
+            click.secho('ERROR: That File already Exists', bg='red')
+            click.secho("=" * 45, fg='red')
+            click.secho("=" * 45, fg='red')
     except IOError as e:
-        print('That file is not within your library.')
+        click.secho('That file is not within your library.', bg='red')
         raise e
     return quizzes, extra_quizzes  # return both for purposes of reassignment
 
