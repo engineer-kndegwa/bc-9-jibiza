@@ -59,8 +59,7 @@ def import_quiz(quiz_file):  # working
                 click.secho(
                     "Quiz import successful!Proceed to take quiz.", fg='green')
                 click.secho("=" * 45, fg='green')
-                click.secho("=" * 45
-                    , fg='green')
+                click.secho("=" * 45, fg='green')
                 break
         else:
             click.secho("=" * 45, fg='red')
@@ -114,28 +113,34 @@ def attempt_quiz(the_quiz_file):
             break
         click.echo(q.combine_string())
         answer_provided = raw_input("Enter Ans>>: ")
-        print(answer_provided)
+        click.secho("You have entered: " +
+                    str(answer_provided), fg='cyan', bold=True)
         responses.append(q.check_answer(answer_provided))
         if responses[-1] is False:
-            click.echo('WRONG!')
+            click.secho('=' * 7, fg='red')
+            click.secho('WRONG!', fg='red')
+            click.secho('=' * 7, fg='red')
             wrong_count += 1
         else:
-            click.echo('RIGHT!')
+            click.secho('=' * 7, fg='green')
+            click.secho('RIGHT!', fg='green')
+            click.secho('=' * 7, fg='green')
             correct_count += 1
-        raw_input("Press enter to proceed to the next question.")
     if game_over:
         return 'Times Up!'
-
+    click.secho('QUIZ COMPLETE! HERE ARE YOUR SCORES.', fg='cyan', bold=True)
     performance = (float(correct_count) / len(questions) * 100)
     # tabulate the results
     table = [['Time Allocated', time_given],
-             ['Questions Attempted', len(responses)],
-             ['Performance in %', performance],
+             ['Questions Attempted in seconds', len(responses)],
+             ['Score in %', performance],
              ['Correct Answers', correct_count],
              ['Wrong Answers', wrong_count],
 
              ]
-    click.echo(tabulate(table))
+    headers = ["Title", "Data"]
+    click.secho(tabulate(table, headers, tablefmt="orgtbl"),
+                fg='yellow', bold=True)
 
 
 def download_quiz(quiz_name):
@@ -151,7 +156,6 @@ def download_quiz(quiz_name):
         click.secho('QUIZ DOWNLOAD SUCCESSFUL!', bold=True, fg='yellow')
 
 
-
 def upload_quiz(quiz_name):
     try:
         with open('Questions/json/' + quiz_name + '.json', 'r') as b:
@@ -164,7 +168,7 @@ def upload_quiz(quiz_name):
         raise
 
 
-def countdown(t): # Has bugs
+def countdown(t):  # Has bugs
     '''Time out counter.'''
     while t:
         mins, secs = divmod(t, 60)

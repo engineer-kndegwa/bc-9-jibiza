@@ -5,9 +5,9 @@
 **A project done in fullfillment of the application process for Andela Cohort 9**
 
 >Why Jibiza? 
-Jibiza is a swahili word meaning 'answer back' as translated into English. This formed the basis for why it was the name I settled for in regards to the **Quizz Application** project that I was assigned to accomplish.
+Jibiza is a swahili word meaning 'answer back' as translated into English. This formed the basis for why it was the name I settled for in regards to the **Quiz Application** project that I was assigned to accomplish.
 
-The Quiz Application is a ***console*** based application that should be used to present multiple choice questions that need be answered 
+Jibiza is a ***console*** based application that should be used to present questions with multiple choice questions that need be answered 
 
 The required commands for the application were:
 

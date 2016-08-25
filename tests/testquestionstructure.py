@@ -1,6 +1,5 @@
 import unittest
-from Questions.questions import QuestionStructure
-
+from .questions import QuestionStructure
 
 class TestQuestionStructure(unittest.TestCase):
     def test_is_instance(self):

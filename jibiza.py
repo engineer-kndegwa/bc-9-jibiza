@@ -21,7 +21,7 @@ class JibizaApp(cmd.Cmd):
                         fg='yellow', bold=True)  # formats appearance of the quizzes
             for quiz in utils.local_quizzes():
                 click.secho("_" * 75, fg='cyan')
-                click.secho(" Quiz Title: " + str(quiz.title()),
+                click.secho(" Quiz Title: " + str(quiz),
                             fg='yellow', bold=True)
                 click.secho("_" * 75, fg='cyan')
         except:
@@ -34,7 +34,7 @@ class JibizaApp(cmd.Cmd):
                         fg='yellow', bold=True)
             for quiz in utils.library_quizzes():
                 click.secho("_" * 75, fg='cyan')
-                click.secho(" Quiz Title :" + str(quiz.title()),
+                click.secho(" Quiz Title :" + str(quiz),
                             fg='yellow', bold=True)
                 click.secho("_" * 75, fg='cyan')
         except:

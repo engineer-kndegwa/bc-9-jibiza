@@ -23,10 +23,16 @@ def title_jibiza():
 def welcome_message():
     click.secho(
         """
-===============WELCOME==============
-**************************************
+=====================WELCOME====================
+QUICK GUIDE:
+1.allquizzes - list all
+2.showonlinequizzes - list all online
+3.showlibraryquizzes - list all in separate path
+4.downloadquiz <quiz_name>
+5.takequiz <quiz_name> 
+************************************************
 TYPE HELP ANYTIME TO VIEW HELP SECTION
-======================================
+================================================
     """, bold=True, fg="yellow")
 
 
@@ -106,7 +112,7 @@ def persistent_menu():
              ["showlibraryquizzes", 'No Arguments', "lists all the quizzes in the library that need be imported before use.",'showlibraryquizzes'],
              ["showonlinequizzes", 'No Arguments', "lists all the quizzes on firebase that need be downloaded before use.",'showonlinequizzes'],
              ["takequiz", '<quiz_name>', "\'takequiz\' allows a user to attempt a quiz and get a score based on answers given.", "takequiz olympics"],
-             ["downloadquiz", '<quiz_name>',"This allows you to download a quiz the firebase.", "downloadquiz beginner"],
+             ["downloadquiz", '<quiz_name>',"This allows you to download a quiz from firebase.", "downloadquiz beginner"],
              ["uploadquiz", '<quiz_name>',"This allows you to upload a quiz to firebase.", "downloadquiz beginner"],
              ["help", 'No Arguments',"\'help\' help section to decode terms and how they are used in Jibiza App.", "help"]
              ]
