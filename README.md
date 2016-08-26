@@ -35,15 +35,15 @@ Command| Argument| Explanation
 
 > JSON Format for Quizzzes should contain the following keys: 
 
-`questions` - List of questions in the quiz
+1. `questions` - List of questions in the quiz
 
-`text` - Question text
+2. `text` - Question text
 
-`options` - List of options for the question
+3. `options` - List of options for the question
 
-`.is_answer` - Parameter of an option that can be true or false. Indicates whether or not that option is the correct answer.
+4. `.is_answer` - Parameter of an option that can be true or false. Indicates whether or not that option is the correct answer.
 
-`quiz take <quiz_name>` - Start taking a new quiz
+5. `quiz take <quiz_name>` - Start taking a new quiz
 
 
 #Installation.
