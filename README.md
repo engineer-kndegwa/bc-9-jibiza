@@ -67,7 +67,7 @@ A few bugs were encountered during the creation of Jibiza.
 
 1. The `uploadquiz` functionality is erratic.
 
-2. The timer sometimes does not work as expected.
+2. The timer sometimes does not work as expected.(Fixed)
 
 
 #Resources
