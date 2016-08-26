@@ -182,3 +182,5 @@ def countdown(t):  # Has bugs
         if t == 0:
             click.echo('TIMES UP!')
             break
+
+import_quiz('olympics')

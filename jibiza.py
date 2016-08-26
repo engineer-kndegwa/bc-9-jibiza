@@ -42,7 +42,10 @@ class JibizaApp(cmd.Cmd):
 
     def do_importquiz(self, quiz_file):  # ok
         '''This function imports a quizz from a JSON File'''
-        utils.import_quiz(quiz_file)
+        try:
+            utils.import_quiz(quiz_file)
+        except:
+            pass
 
     def do_takequiz(self, quiz_file):
         '''This function allows the user to take a quiz'''
