@@ -1,0 +1,33 @@
+{"name": "statementcompleter",
+"time_allocated":15,
+"questions":[
+    {"q_text":"Eloi Eloi...",
+     "options": {"a":"Let me samahani","b":"Le ma sebuleni", "c":"Lema Sabachthani", "d":"That word"},
+     "is_answer": "c"
+    },
+
+    {
+    "q_text":"La Kuvunda ...",
+    "options":{"a":"hakina upeo", "b":"hamna jibu", "c":"lishavunda", "d":"hakina rubani"},
+    "is_answer": "c"
+    },
+
+    {
+    "q_text":"If I die young ...",
+    "options":{"a":"Those words", "b":"Bury me in satin", "c":", bury me in satin.", "d":"I will resurrect"},
+    "is_answer": "c"
+    },
+
+    {
+    "q_text":"Sometimes all you need is ...(Famous Quote)",
+    "options":{"a":"is too be real.", "b":"is 500 million dollars", "c":"is food.(cc Sitati)", "d":"is yourself."},
+    "is_answer": "b"
+    },
+
+    {
+    "q_text":"I had a dream I could by my way to heaven ...",
+    "options":{"a":"then I bought it.", "b":"and I did.", "c":"so?", "d":"when I woke, I spent that all on a necklace."},
+    "is_answer": "d"
+    }
+]
+}

@@ -1,0 +1,33 @@
+{"name": "thinkfast",
+"time_allocated":20,
+"questions":[
+    {"q_text":"How many programmers does it take to fix a lightbulb?",
+     "choices": {"a":"1","b":"Thats a stupid question.", "c":"Ask an Electric Engineer", "d":"Its not a software problem."},
+     "answer": "d"
+    },
+
+    {
+    "q_text":"What pumps blood to the lower side of your abdomen?",
+    "choices":{"a":"The heart", "b":"The abdomen has its own blood", "c":"Jesus is the answer", "d":"None"},
+    "answer": "a"
+    },
+
+    {
+    "q_text":"How can you lift an elephant with one hand?",
+    "choices":{"a":"Impossible", "b":"Faith can move mountains.", "c":"KWS", "d":"elephant?hands?Really."},
+    "answer": "d"
+    },
+
+    {
+    "q_text":"If it took eight men ten hours to build a wall,how long would it take four men to build it?",
+    "choices":{"a":"20 hours", "b":"No time.", "c":"It depends on the technology used", "d":"Pass"},
+    "answer": "b"
+    },
+
+    {
+    "q_text":"Some months have 31 days, others have 30 days. How many have 28 days?",
+    "choices":{"a":"February every leap year.", "b":"All", "c":"Timeless", "d":"Time is time"},
+    "answer": "d"
+    }
+]
+}

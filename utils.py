@@ -127,7 +127,7 @@ def attempt_quiz(the_quiz_file):
             click.secho('=' * 7, fg='green')
             correct_count += 1
     if game_over:
-        return 'Times Up!'
+        click.secho('Times Up!', fg='red', bold=True)
     click.secho('QUIZ COMPLETE! HERE ARE YOUR SCORES.', fg='cyan', bold=True)
     performance = (float(correct_count) / len(questions) * 100)
     # tabulate the results
