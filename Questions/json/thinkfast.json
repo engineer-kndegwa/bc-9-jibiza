@@ -28,6 +28,11 @@
     "q_text":"Some months have 31 days, others have 30 days. How many have 28 days?",
     "choices":{"a":"February every leap year.", "b":"All", "c":"Timeless", "d":"Time is time"},
     "answer": "d"
+    },
+    {
+    "q_text":"What is existence of existence?",
+    "choices":{"a":"Just that.", "b":"Go home Jibiza, your drunk", "c":"Existence", "d":"None"},
+    "answer": "c"
     }
 ]
 }
