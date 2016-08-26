@@ -1,6 +1,7 @@
 import unittest
 from .questions import QuestionStructure
 
+
 class TestQuestionStructure(unittest.TestCase):
     def test_is_instance(self):
         obj = QuestionStructure('Q1', 'A1', 'C1')
