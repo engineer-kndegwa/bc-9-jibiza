@@ -97,4 +97,9 @@ if __name__ == "__main__":
     try:
         JibizaApp().cmdloop()
     except KeyboardInterrupt:
-        print("Bye!")
+        with click.progressbar(range(200000),
+                               label=click.secho(
+                               '\t\t\t\tSAYING GOODBYE...', blink=True, bold=True),
+                               fill_char=click.style('  ', bg='cyan')) as prog_bar:
+            for i in prog_bar:
+                pass
