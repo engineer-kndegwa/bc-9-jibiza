@@ -39,8 +39,10 @@ def import_quiz(quiz_file):  # working
     lists the files within the directory'''
     a = os.listdir('library/')  # list the files in the library
     extra_quizzes = [file.replace('.json', '')for file in a]
+
     b = os.listdir('Questions/json')  # list the files in the Questions/json
     quizzes = [file.replace('.json', '') for file in b]
+
     dst = os.path.join(os.path.abspath('.'), 'Questions/json')
     src_path = os.path.join(os.path.abspath('.'), 'library/')
     # creates an absolute path for shutils
@@ -180,4 +182,3 @@ def countdown(t):  # Has bugs
         if t == 0:
             click.echo('TIMES UP!')
             break
-
