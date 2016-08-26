@@ -108,10 +108,10 @@ def attempt_quiz(the_quiz_file):
     game_over = False  # in case you dont't make it in time
     '''Get Through each question from the json file'''
     for q in questions:
-        if time.time() - begin > time_given:
+        if (time.time() - begin) > time_given:
             game_over = True
             break
-        click.echo(q.combine_string())
+        click.secho(q.combine_string(), bold=True)
         answer_provided = raw_input("Enter Ans>>: ")
         click.secho("You have entered: " +
                     str(answer_provided), fg='cyan', bold=True)
@@ -126,12 +126,15 @@ def attempt_quiz(the_quiz_file):
             click.secho('RIGHT!', fg='green')
             click.secho('=' * 7, fg='green')
             correct_count += 1
+    if len(responses) == len(questions):
+        end = time.time() - begin
     if game_over:
         click.secho('Times Up!', fg='red', bold=True)
-    click.secho('QUIZ COMPLETE! HERE ARE YOUR SCORES.', fg='cyan', bold=True)
+    click.secho('QUIZ COMPLETE! HERE IS YOUR SCORE.', fg='cyan', bold=True)
     performance = (float(correct_count) / len(questions) * 100)
     # tabulate the results
-    table = [['Time Allocated', time_given],
+    table = [['Time Allocated in seconds', time_given],
+             ['Time Taken in seconds', end],
              ['Questions Attempted in seconds', len(responses)],
              ['Score in %', performance],
              ['Correct Answers', correct_count],

@@ -30,6 +30,7 @@ QUICK GUIDE:
 3.showlibraryquizzes - list all in separate path
 4.downloadquiz <quiz_name>
 5.takequiz <quiz_name> 
+6.clr to clear screen
 ************************************************
 TYPE HELP ANYTIME TO VIEW HELP SECTION
 ================================================
