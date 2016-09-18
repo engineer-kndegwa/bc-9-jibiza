@@ -33,9 +33,6 @@ Command| Argument| Explanation
 
 7. Publish a local quiz to the online library
 
-Alternatively you can follow the steps through this video:
-
-[![asciicast](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e.png)](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e)
 
 > JSON Format for Quizzzes should contain the following keys: 
 
@@ -63,6 +60,10 @@ Alternatively you can follow the steps through this video:
 4. Install the requirements via `pip install -r requirements.txt`
 
 5. Run the application in your terminal via `python jibiza.py`
+
+>Alternatively you can follow the steps through this video:
+
+[![asciicast](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e.png)](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e)
 
 
 #Bugs
