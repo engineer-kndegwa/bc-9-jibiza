@@ -33,6 +33,10 @@ Command| Argument| Explanation
 
 7. Publish a local quiz to the online library
 
+Alternatively you can follow the steps through this video:
+
+[![asciicast](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e.png)](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e)
+
 > JSON Format for Quizzzes should contain the following keys: 
 
 1. `questions` - List of questions in the quiz
