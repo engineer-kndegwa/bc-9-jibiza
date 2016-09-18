@@ -63,7 +63,7 @@ Command| Argument| Explanation
 
 >Alternatively you can follow the steps through this video:
 
-[![asciicast](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e.png)](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e)
+[![asciicast](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e.png)](https://asciinema.org/a/0fgyf129ur86y7046x6wmji6e?autoplay=1)
 
 
 #Bugs
