@@ -135,7 +135,7 @@ def attempt_quiz(the_quiz_file):
     # tabulate the results
     table = [['Time Allocated in seconds', time_given],
              ['Time Taken in seconds', end],
-             ['Questions Attempted in seconds', len(responses)],
+             ['Questions Attempted', len(responses)],
              ['Score in %', performance],
              ['Correct Answers', correct_count],
              ['Wrong Answers', wrong_count],

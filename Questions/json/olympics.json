@@ -1,0 +1,33 @@
+{"name": "olympics",
+"time_allocated":15,
+"questions":[
+    {"q_text":"What position did Kenya finish at in the recently concluded olympics?",
+     "options": {"a":"1","b":"15", "c":"25", "d":"6"},
+     "is_answer": "c"
+    },
+
+    {
+    "q_text":"What country does Joseph Schooling, the man who beat his idol Michael Phelps, hail?",
+    "options":{"a":"Singapore", "b":"China", "c":"Meru County", "d":"Japan"},
+    "is_answer": "a"
+    },
+
+    {
+    "q_text":"Who broke the first world record in the Olympics Stadium this year?",
+    "options":{"a":"Usain Bolt", "b":"Simon Biles", "c":"Almaz Ayana", "d":"Asbel Kiprop"},
+    "is_answer": "c"
+    },
+
+    {
+    "q_text":"Who challenged Usain Bolt at the mens 200m, almost beating him?",
+    "options":{"a":"Justin Gatlin", "b":"Andre De Grasse", "c":"Mike Jay", "d":"Raven Cutler"},
+    "is_answer": "b"
+    },
+
+    {
+    "q_text":"Where will the next Olympics be held?",
+    "options":{"a":"Miami", "b":"Durban", "c":"Johanessburg", "d":"Tokyo"},
+    "is_answer": "d"
+    }
+]
+}
